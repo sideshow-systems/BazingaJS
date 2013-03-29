@@ -14,9 +14,9 @@ Usage
 This is mainly a jQuery plugin and you'll use it something like this:
 
 ```javascript
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="path/to/jquery.bazinga_v0.1.js"></script>
-	<script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+<script type="text/javascript" src="path/to/jquery.bazinga_v0.1.js" />
+<script type="text/javascript">
 	$(document).ready(function() {
 		$(document).bazinga({
 			serverSide: 'path/to/serverside/ajax.php',
