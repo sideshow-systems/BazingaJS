@@ -7,7 +7,12 @@ If you have ever wanted to validate your current page you are working on quickly
 
 Demo
 ----
-Will be available soon!
+Check out the Demo pages!
+
+* <http://bazingajs.sideshow-systems.de/demo/demo_page_1.html>
+* <http://bazingajs.sideshow-systems.de/demo/demo_page_2.html>
+* <http://bazingajs.sideshow-systems.de/demo/demo_page_3.html>
+
 
 Usage
 -----
