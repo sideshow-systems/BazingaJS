@@ -12,6 +12,7 @@ Check out the Demo pages!
 * <http://bazingajs.sideshow-systems.de/demo/demo_page_1.html>
 * <http://bazingajs.sideshow-systems.de/demo/demo_page_2.html>
 * <http://bazingajs.sideshow-systems.de/demo/demo_page_3.html>
+* <http://bazingajs.sideshow-systems.de/demo/demo_page_4.html>
 
 
 Usage
