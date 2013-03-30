@@ -111,9 +111,9 @@
 						
 						// set info data
 						jQuery.each(data.info, function(key, value) {
-							value = value.replace('Warning:', '<span class="respcode_1">Warning:</span>');
-							value = value.replace('Error:', '<span class="respcode_2">Error:</span>');
-							el.outp_panel.append('<pre>' + value + '</pre>');
+							value.line = value.line.replace('Warning:', '<span class="respcode_1">Warning:</span>');
+							value.line = value.line.replace('Error:', '<span class="respcode_2">Error:</span>');
+							el.outp_panel.append('<pre>' + value.line + '</pre>');
 						});
 						
 						// set class of controller based on response code
