@@ -14,7 +14,8 @@
 		parentEl: "body",
 		validateOnLoad: false,
 		serverSide: null,
-		ajaxType: 'post'
+		ajaxType: 'post',
+		showOutputPanelOnValid: false
 	};
 
 	// The actual plugin constructor
@@ -50,10 +51,36 @@
 				base.validate(base.element, base.options);
 			});
 			
+			// add hover to controller - #1 maybe we add this later...
+//			this.element.controller.hover(
+//				function() {
+//					base.showOutputPanel(base.element.outp_panel);
+//				},
+//				function() {
+//					base.hideOutputPanel(base.element.outp_panel);
+//				}
+//			);
+			
 			// trigger validation if validateOnLoad is true
 			if(this.options.validateOnLoad) {
 				this.validate(this.element, this.options);
 			}
+		},
+		// show output panel
+		showOutputPanel: function(panel) {
+			panel.animate({
+				opacity: 1,
+				top: '60px'
+			}, 400);
+		},
+		// hide output panel
+		hideOutputPanel: function(panel) {
+			panel.animate({
+				opacity: 0,
+				top: '100px'
+			}, 100, function() {
+				$(this).css('top', '80px');
+			});
 		},
 		// validate the current page
 		validate: function(el, options) {
@@ -61,12 +88,7 @@
 			el.controller.removeClass('respcode_0').removeClass('respcode_1').removeClass('respcode_2');
 			
 			// hide output panel
-			el.outp_panel.animate({
-				opacity: 0,
-				top: '100px'
-			}, 100, function() {
-				$(this).css('top', '80px');
-			});
+			this.hideOutputPanel(el.outp_panel);
 			
 			// do ajax call to server side
 			$.ajax({
@@ -101,10 +123,14 @@
 						el.outp_panel.addClass('respcode_' + data.status);
 						
 						// show output panel
-						el.outp_panel.animate({
-							opacity: 1,
-							top: '60px'
-						}, 400);
+						var showOutputPanel = true;
+						if(data.status === 0 && !options.showOutputPanelOnValid) {
+							showOutputPanel = false;
+						}
+						
+						if(showOutputPanel) {
+							base.showOutputPanel(el.outp_panel);
+						}
 					} else {
 						jQuery.error('No data from server. Please check serverSide param!');
 					}
