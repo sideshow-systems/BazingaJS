@@ -96,10 +96,24 @@ class Bazinga {
 					$lin = (!empty($matches['line'])) ? $matches['line'] : null;
 					$col = (!empty($matches['column'])) ? $matches['column'] : null;
 				}
+
+				// Try to get related html to $lin
+				$htmlRel = null;
+				if (!empty($lin)) {
+					foreach ($this->parsedHtmlData as $htmlData) {
+						if ($htmlData['line'] == $col) {
+							// TODO: mark column in text!
+							$htmlRel = htmlentities($htmlData['value']);
+						}
+					}
+				}
+
+				// Store data
 				$info_lines[] = array(
-					'line'	=> htmlentities($line),
-					'lin'	=> $lin,
-					'col'	=> $col
+					'line' => htmlentities($line),
+					'lin' => $lin,
+					'col' => $col,
+					'htmlrel' => $htmlRel
 				);
 //				print_r($line);
 			}
