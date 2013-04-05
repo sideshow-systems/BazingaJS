@@ -101,7 +101,7 @@ class Bazinga {
 				$htmlRel = null;
 				if (!empty($lin)) {
 					foreach ($this->parsedHtmlData as $htmlData) {
-						if ($htmlData['line'] == $col) {
+						if ($htmlData['line'] == $lin) {
 							// TODO: mark column in text!
 							$htmlRel = htmlentities($htmlData['value']);
 						}
@@ -172,7 +172,7 @@ class Bazinga {
 					'line' => $child->line,
 					'column' => $child->column,
 					'proprietary' => $child->proprietary,
-					'id' => $child->id,
+					'id' => !empty($child->id) ? $child->id : null,
 					'attribute' => $child->attribute
 				);
 				$this->parsedHtmlData[] = $pData;
